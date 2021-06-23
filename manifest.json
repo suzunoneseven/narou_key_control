@@ -1,0 +1,19 @@
+{
+    "manifest_version": 2,
+    "name": "小説家になろう非公式キー操作ツール",
+    "short_name": "なろう操作",
+    "version": "1.0.0",
+    "description": "小説家になろう非公式の、キーで各種操作を行うツール",
+    "content_scripts": [
+        {
+            "matches": ["https://ncode.syosetu.com/*/*/", "http://localhost/chrome/*/"],
+            "js": ["script.js"]
+        }
+    ],
+    "options_ui": {
+        "page": "option/index.html",
+        "open_in_tab": true
+    },
+    "permissions": ["storage"],
+    "content_security_policy": "script-src 'self' https://cdnjs.cloudflare.com; object-src 'self'"
+}

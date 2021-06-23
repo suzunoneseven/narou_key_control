@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+<div class="row">
+    <form class="col s12">
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">navigate_next</i>
+                <input id="next_key" type="text" class="validate" value="AllowRight">
+                <label class="active" for="next_key">次に遷移するキー</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">navigate_before</i>
+                <input id="back_key" type="text" class="validate" value="AllowLeft">
+                <label class="active" for="back_key">前に戻るキー</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <div class="switch">
+                    <label>
+                        Off
+                        <input id="is_displayed_next" type="checkbox" name="is_displayed_next" checked>
+                        <span class="lever"></span>
+                        On
+                    </label>
+                </div>
+                <span class="helper-text" data-error="wrong" data-success="right">「次へ」が表示されていたら有効にする</span>
+            </div>
+            <div class="input-field col s6">
+                <div class="switch">
+                    <label>
+                        Off
+                        <input id="is_displayed_back" type="checkbox" name="is_displayed_back" checked>
+                        <span class="lever"></span>
+                        On
+                    </label>
+                </div>
+                <span class="helper-text" data-error="wrong" data-success="right">「戻る」が表示されていたら有効にする</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <div class="switch">
+                    <label>
+                        Off
+                        <input id="scroll_main" type="checkbox" name="scroll_main">
+                        <span class="lever"></span>
+                        On
+                    </label>
+                </div>
+                <span class="helper-text" data-error="wrong" data-success="right">表示時に自動的にスクロールする</span>
+            </div>
+        </div>
+        <button id="save_button" type="button" class="waves-effect waves-light btn">Save</button>
+    </form>
+</div>
+
+<script src="option.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
