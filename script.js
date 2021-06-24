@@ -62,13 +62,29 @@ function go_back() {
     }
 }
 
+function bookmark() {
+    const element = document.getElementsByClassName("add_bookmark");
+    if (0 < element.length) {
+        element.item(0).click();
+    }
+}
+
+function save_position() {
+    const element = document.getElementsByClassName("bookmark_now set_siori");
+    if (0 < element.length) {
+        element.item(0).firstChild.click();
+    }
+}
+
 function load_setting(callback) {
     const nkc_setting_keys = {
         next_key: "ArrowRight",
         back_key: "ArrowLeft",
         is_displayed_next: true,
         is_displayed_back: true,
-        scroll_main: true
+        scroll_main: true,
+        bookmark: "Enter",
+        save_position: "Enter"
     };
     chrome.storage.local.get(nkc_setting_keys, function (items) {
         for (let key in nkc_setting_keys) {
@@ -90,6 +106,13 @@ window.onload = function() {
                 go_next();
             } else if (event.key == nkc_setting.back_key) {
                 go_back();
+            } else if (event.key == nkc_setting.bookmark) {
+                bookmark();
+                if (nkc_setting.bookmark == nkc_setting.save_position) {
+                    save_position();
+                }
+            } else if (event.key == nkc_setting.save_position) {
+                save_position();
             }
         }
     });
