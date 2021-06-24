@@ -72,7 +72,7 @@ function bookmark() {
 function save_position() {
     const element = document.getElementsByClassName("bookmark_now set_siori");
     if (0 < element.length) {
-        element.item(0).firstChild.click();
+        element.item(0).children.item(0).click();
     }
 }
 
