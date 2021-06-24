@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "小説家になろう非公式キー操作ツール",
     "short_name": "なろう操作",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "小説家になろう非公式の、キーで各種操作を行うツール",
     "content_scripts": [
         {
