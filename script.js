@@ -62,31 +62,35 @@ function go_back() {
     }
 }
 
-function load_setting() {
-    const nkc_setting_keys = [
-        "next_key",
-        "back_key",
-        "is_displayed_next",
-        "is_displayed_back",
-        "scroll_main"
-    ];
+function load_setting(callback) {
+    const nkc_setting_keys = {
+        next_key: "ArrowRight",
+        back_key: "ArrowLeft",
+        is_displayed_next: true,
+        is_displayed_back: true,
+        scroll_main: true
+    };
     chrome.storage.local.get(nkc_setting_keys, function (items) {
-        nkc_setting_keys.forEach(element => {
-            nkc_setting[element] = items[element];
-        });
+        for (let key in nkc_setting_keys) {
+            nkc_setting[key] = (items[key] === undefined ? nkc_setting_keys[key] : items[key]);
+            console.log(nkc_setting[key]);
+        }
+        callback();
     });
 }
 
 window.onload = function() {
-    load_setting();
-    const main_position = document.getElementById("novel_honbun").getBoundingClientRect().top;
-    console.log(main_position);
-    window.scrollTo({left: 0, top: main_position - 48, behavior: "smooth"});
-    window.document.onkeyup = function (event) {
-        if (event.key == nkc_setting.next_key) {
-            go_next();
-        } else if (event.key == nkc_setting.back_key) {
-            go_back();
+    load_setting(() => {
+        if (nkc_setting.scroll_main) {
+            const main_position = document.getElementById("novel_honbun").getBoundingClientRect().top;
+            window.scrollTo({left: 0, top: main_position - 48, behavior: "smooth"});
         }
-    }
+        window.document.onkeyup = function (event) {
+            if (event.key == nkc_setting.next_key) {
+                go_next();
+            } else if (event.key == nkc_setting.back_key) {
+                go_back();
+            }
+        }
+    });
 }

@@ -31,8 +31,8 @@ function load() {
         "scroll_main"
     ];
     chrome.storage.local.get(nkc_setting_keys, function (items) {
-        document.getElementById("next_key").value = (items.next_key === undefined ? "AllowRight" : items.next_key);
-        document.getElementById("back_key").value = (items.back_key === undefined ? "AllowLeft" : items.back_key);
+        document.getElementById("next_key").value = (items.next_key === undefined ? "ArrowRight" : items.next_key);
+        document.getElementById("back_key").value = (items.back_key === undefined ? "ArrowLeft" : items.back_key);
         document.getElementById("is_displayed_next").checked = (items.is_displayed_next === undefined ? true : items.is_displayed_next);
         document.getElementById("is_displayed_back").checked = (items.is_displayed_back === undefined ? true : items.is_displayed_back);
         document.getElementById("scroll_main").checked = (items.scroll_main === undefined ? true : items.scroll_main);
